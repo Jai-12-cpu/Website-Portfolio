@@ -2,48 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jai Srinivasan | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- Background glow -->
+  <div class="glow glow1"></div>
+  <div class="glow glow2"></div>
+
   <header>
-    <h1>Jai Srinivasan</h1>
-    <p>Computer Engineering Student @ University of Waterloo</p>
+    <h1 class="neon-text">Jai Srinivasan</h1>
+    <p class="subtitle">Computer Engineering @ University of Waterloo</p>
   </header>
 
-  <section id="about">
+  <section class="card">
     <h2>About Me</h2>
     <p>
       I am a Computer Engineering student passionate about software,
-      problem-solving, and building meaningful projects.
+      cybersecurity, and building real-world systems.
     </p>
   </section>
 
-  <section id="skills">
+  <section class="card">
     <h2>Skills</h2>
-    <ul>
-      <li>C / C++</li>
-      <li>Java</li>
-      <li>Python</li>
-      <li>HTML, CSS, JavaScript</li>
-      <li>Git & GitHub</li>
-    </ul>
+    <div class="skills">
+      <span>C++</span>
+      <span>Java</span>
+      <span>Python</span>
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+      <span>Git</span>
+    </div>
   </section>
 
-  <section id="projects">
+  <section class="card">
     <h2>Projects</h2>
     <div class="project">
-      <h3>Cyberventure Game</h3>
+      <h3>Cyberventure</h3>
       <p>
-        A cybersecurity-based educational game teaching users about
-        phishing, password safety, and digital threats.
+        A cybersecurity educational game focused on phishing awareness,
+        password safety, and digital threats.
       </p>
     </div>
   </section>
 
-  <section id="contact">
+  <section class="card">
     <h2>Contact</h2>
     <p>Email: jssivara@uwaterloo.ca</p>
     <p>LinkedIn: linkedin.com/in/jai-srinivasan-sivaraj</p>
@@ -56,3 +62,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
