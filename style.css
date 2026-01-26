@@ -97,3 +97,85 @@ footer {
   padding: 30px;
   color: #6b7280;
 }
+/* HERO BUTTONS */
+.hero-buttons {
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 12px 22px;
+  margin: 0 10px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn.primary {
+  background: #00ffff;
+  color: #000;
+}
+
+.btn.secondary {
+  border: 1px solid #00ffff;
+  color: #00ffff;
+}
+
+.btn:hover {
+  box-shadow: 0 0 20px #00ffff;
+}
+
+/* ABOUT LIST */
+.about-list {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.about-list li {
+  margin-bottom: 8px;
+  color: #d1d5db;
+}
+
+/* TIMELINE */
+.timeline-item {
+  margin-bottom: 25px;
+}
+
+.timeline-item h3 {
+  color: #00ffff;
+}
+
+.timeline-item span {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+/* PROJECT CARD */
+.project-card {
+  background: rgba(0,0,0,0.4);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+
+.project-card a {
+  color: #00ffff;
+  text-decoration: none;
+}
+
+.tech-stack span {
+  display: inline-block;
+  margin: 8px 8px 0 0;
+  padding: 6px 12px;
+  background: rgba(0,255,255,0.15);
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+/* CONTACT */
+.contact-links a {
+  margin-right: 15px;
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: 500;
+}
