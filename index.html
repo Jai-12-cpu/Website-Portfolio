@@ -1,220 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Jai Srinivasan Sivaraj | Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Computer Engineering student at the University of Waterloo. Full-stack web apps, embedded systems, and AI agent tooling.">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jai Srinivasan Sivaraj | Portfolio</title>
+<meta name="description" content="Computer Engineering student at the University of Waterloo. Full-stack apps, embedded systems, and AI agent tooling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--text:#f2efe9;--mute:#8a8a85;--dim:#5c5c58;--cream:#e8d5a3;--green:#7fc8a9;--line:rgba(255,255,255,.1);--pad:clamp(20px,3vw,45px)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:400 14px/1.8 "JetBrains Mono",ui-monospace,Menlo,monospace;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
+.display{font-family:Syne,"Arial Black",sans-serif;font-weight:800;letter-spacing:-.02em;line-height:.98}
+.label{font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:22px var(--pad);background:linear-gradient(var(--bg),transparent)}
+.logo{font-family:Syne,sans-serif;font-weight:800;font-size:20px;color:var(--cream)}
+nav ul{display:flex;gap:40px;list-style:none}
+nav ul a{color:var(--mute);transition:color .2s}
+nav ul a:hover{color:var(--text)}
+.ext{border:1px solid var(--line);padding:9px 18px;color:var(--mute)}
+.ext:hover{border-color:var(--cream);color:var(--cream)}
+
+/* hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px var(--pad) 70px;position:relative;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:60px 60px}
+.eyebrow{display:flex;align-items:center;gap:14px;color:var(--green);margin-bottom:28px}
+.eyebrow::before{content:"";width:25px;height:1px;background:var(--green)}
+h1{font-size:clamp(2.4rem,6.4vw,7.5rem)}
+h1 .c1{color:var(--text)}h1 .c2{color:var(--cream)}h1 .c3{color:#666}
+.hero p.intro{max-width:560px;margin-top:48px;color:var(--mute)}
+.hero p.intro b{color:var(--text);font-weight:700}
+.hero p.intro em{color:var(--green);font-style:normal}
+.btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.btn{padding:14px 24px;border:1px solid var(--line);color:var(--mute);transition:all .2s}
+.btn:hover{border-color:var(--cream);color:var(--cream)}
+.btn.main{background:var(--cream);border-color:var(--cream);color:#0a0a0a;font-weight:500}
+.btn.main:hover{background:var(--text);border-color:var(--text);color:#0a0a0a}
+.scroll{position:absolute;right:var(--pad);bottom:70px;writing-mode:vertical-rl;color:var(--dim);display:flex;align-items:center;gap:12px}
+.scroll::after{content:"";width:1px;height:60px;background:var(--line)}
+
+/* sections */
+section.s{padding:110px var(--pad);border-top:1px solid var(--line)}
+.s-head{margin-bottom:56px}
+.s-head .label{display:flex;align-items:center;gap:14px;color:var(--green);margin-bottom:28px}
+.s-head .label::before{content:"";width:28px;height:1px;background:var(--green)}
+h2{font-size:clamp(2rem,4.4vw,4.2rem)}
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:70px;align-items:start}
+.about{color:var(--mute);line-height:2}
+.about p+p{margin-top:22px}
+.about b{color:var(--text);font-weight:700}
+.about em{color:var(--cream);font-style:normal}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:var(--bg);padding:34px 22px}
+.stat b{display:block;font:800 clamp(2rem,4vw,3.6rem)/1 Syne,sans-serif;color:var(--cream);margin-bottom:8px}
+.stat span{font-size:12px;color:var(--dim)}
+#skills{background:#0d0d0c}
+.row{display:grid;grid-template-columns:1fr;gap:10px;padding:34px 0;border-top:1px solid var(--line)}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row h3{font-family:Syne,sans-serif;font-weight:800;font-size:clamp(1.4rem,2.2vw,2rem);letter-spacing:-.01em;line-height:1.15}
+.row .meta{color:var(--green);font-size:12px;letter-spacing:.08em}
+.row p{color:var(--mute);max-width:680px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.tags span{border:1px solid var(--line);padding:3px 12px;font-size:12px;color:var(--mute)}
+.row a.go{color:var(--cream);width:max-content;margin-top:6px}
+.row a.go:hover{text-decoration:underline;text-underline-offset:4px}
+.skillgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.skillgrid>div{background:#0d0d0c;padding:26px 24px}
+.skillgrid h3{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);font-weight:500;padding-bottom:14px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+.skillgrid span{display:inline-block;margin:0 8px 8px 0;padding:6px 12px;background:#141413;border:1px solid var(--line);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+.contact .big{font-family:Syne,sans-serif;font-weight:800;font-size:clamp(1.3rem,3.4vw,3rem);color:var(--cream);word-break:break-all;letter-spacing:-.01em}
+.contact .big:hover{color:var(--text)}
+footer{padding:36px var(--pad);border-top:1px solid var(--line);color:var(--dim);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* cursor (fine pointers only) */
+.cur,.ring{position:fixed;top:0;left:0;pointer-events:none;z-index:99;display:none}
+@media (pointer:fine){
+  body.js,body.js a,body.js button{cursor:none}
+  .cur,.ring{display:block}
+  .cur{width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--cream)}
+  .ring{width:32px;height:32px;margin:-16px 0 0 -16px;border:1px solid var(--cream);border-radius:50%;opacity:.7;transition:width .2s,height .2s,margin .2s}
+  .ring.hov{width:52px;height:52px;margin:-26px 0 0 -26px}
+}
+@media (max-width:900px){
+  nav ul{display:none}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .skillgrid{grid-template-columns:1fr}
+  .scroll{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ring{transition:none}}
+</style>
 </head>
 <body>
+<div class="cur"></div><div class="ring"></div>
 
-  <!-- Background glow -->
-  <div class="glow glow1"></div>
-  <div class="glow glow2"></div>
+<nav>
+  <a href="#top" class="logo">JSS /</a>
+  <ul class="label">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="ext label" href="https://linkedin.com/in/jai-srinivasan-sivaraj" target="_blank" rel="noopener">LinkedIn ↗</a>
+</nav>
 
-  <header class="hero">
-    <h1 class="neon-text">Jai Srinivasan Sivaraj</h1>
-    <p class="subtitle">Computer Engineering @ University of Waterloo</p>
+<header class="hero" id="top">
+  <div class="eyebrow label">Computer Engineering · University of Waterloo</div>
+  <h1 class="display"><span class="c1">Jai</span><br><span class="c2">Srinivasan</span><br><span class="c3">Sivaraj.</span></h1>
+  <p class="intro">I build at the edge of <b>hardware and software</b> — AI agents, IoT wristbands, full-stack apps, programmable robots. <em>Always shipping.</em></p>
+  <div class="btns label">
+    <a class="btn main" href="#projects">View projects →</a>
+    <a class="btn" href="https://github.com/jai-12-cpu" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn" href="resume.pdf">Resume</a>
+    <a class="btn" href="#contact">Contact</a>
+  </div>
+  <div class="scroll label">Scroll</div>
+</header>
 
-    <div class="hero-buttons">
-      <a href="#projects" class="btn primary">View Projects</a>
-      <a href="resume.pdf" class="btn secondary">Download Resume</a>
+<section class="s" id="about">
+  <div class="s-head"><div class="label">About me</div></div>
+  <div class="about-grid">
+    <div class="about">
+      <p>I'm <b>Jai</b>, a Computer Engineering student at <em>UWaterloo</em>, graduating 2030. I love the full stack — not just web, but <b>the entire system</b>: sensors, microcontrollers, logic, interfaces, databases.</p>
+      <p>My work spans <b>IoT medical devices</b>, <b>LLM-based AI agents</b>, <b>full-stack web apps</b>, and <b>GUI robots</b>. I've interned as a software engineer, competed at hackathons and coding contests, and shipped under real constraints.</p>
+      <p>I don't just write code. I prototype, iterate, debug hardware, and make things that <em>actually work</em> in the real world.</p>
     </div>
-  </header>
-
-  <section class="card">
-    <h2>About Me</h2>
-    <p>
-      I am a Computer Engineering student at the University of Waterloo (co-op, expected 2030).
-      I build full-stack web apps, embedded systems, and tools for AI agents, and I like
-      working on problems where software meets hardware.
-    </p>
-
-    <ul class="about-list">
-      <li>Junior Software Engineer at Tesserae Studios, building LLM-based AI agent tooling</li>
-      <li>Full-stack projects with FastAPI, PostgreSQL, React, and Chart.js, deployed live</li>
-      <li>Hardware experience with RISC-V, ATmega328P, sensors, and circuit analysis in LTspice</li>
-      <li>Looking for co-op and internship opportunities</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>Skills</h2>
-    <div class="skills">
-      <span>C++</span>
-      <span>Python</span>
-      <span>C</span>
-      <span>Java</span>
-      <span>JavaScript</span>
-      <span>SQL</span>
-      <span>HTML/CSS</span>
-      <span>MATLAB</span>
-      <span>Verilog</span>
-      <span>FastAPI</span>
-      <span>React</span>
-      <span>Chart.js</span>
-      <span>PostgreSQL</span>
-      <span>MySQL</span>
-      <span>Git &amp; GitHub</span>
-      <span>LTspice</span>
-      <span>Quartus</span>
-      <span>RISC-V</span>
-      <span>ATmega328P</span>
-      <span>REST APIs</span>
+    <div class="stats">
+      <div class="stat"><b>8+</b><span>Programming languages</span></div>
+      <div class="stat"><b>20+</b><span>Algorithms implemented</span></div>
+      <div class="stat"><b>3</b><span>Hackathons competed</span></div>
+      <div class="stat"><b>2030</b><span>Expected graduation</span></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="card">
-    <h2>Experience</h2>
+<section class="s" id="skills">
+  <div class="s-head"><div class="label">Technical skills</div><h2 class="display">What I work with.</h2></div>
+  <div class="skillgrid">
+    <div><h3>Languages</h3><span>Python</span><span>Java</span><span>C++</span><span>C</span><span>JavaScript</span><span>SQL</span><span>HTML/CSS</span><span>MATLAB</span><span>Verilog</span></div>
+    <div><h3>Data &amp; databases</h3><span>PostgreSQL</span><span>MySQL</span><span>SQL</span><span>CRUD</span><span>File I/O</span><span>CSV</span></div>
+    <div><h3>Tools</h3><span>Git</span><span>GitHub</span><span>VS Code</span><span>LTspice</span><span>Quartus</span><span>FastAPI</span><span>React</span><span>Chart.js</span><span>Railway</span><span>Vercel</span></div>
+    <div><h3>Hardware</h3><span>Arduino</span><span>ATmega328P</span><span>RISC-V</span><span>Heart-rate sensor</span><span>Accelerometer</span><span>LCD display</span></div>
+    <div><h3>Core concepts</h3><span>OOP</span><span>Data structures</span><span>Algorithms</span><span>REST APIs</span><span>AI agents</span><span>Dynamic memory</span><span>Debugging</span><span>Error handling</span></div>
+    <div><h3>Academic</h3><span>Linear algebra</span><span>Calculus</span><span>Discrete math</span><span>Digital logic</span><span>Linear circuits</span><span>Microprocessors</span><span>Computer systems</span></div>
+  </div>
+</section>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Tesserae Studios Canada Inc.</h3>
-        <span>Junior Software Engineer · June 2026 – Aug 2026 · Remote, Toronto</span>
-        <p>
-          Built full-stack components for LLM-based AI agents, including prompt engineering,
-          tool calling, and multi-step workflows for automated 3D room rendering and estimation.
-          Fixed production bugs across two live client platforms (Modiva Studios and Clawd Video),
-          and joined weekly code reviews with executive leadership.
-        </p>
-      </div>
-
-      <div class="timeline-item">
-        <h3>University of Waterloo</h3>
-        <span>BASc Computer Engineering (Co-op) · Expected 2030</span>
-        <p>
-          Coursework in data structures and algorithms, object-oriented programming,
-          digital logic, microprocessors, and linear circuits.
-          Certifications: MATLAB Onramp (MathWorks), Git Essential Training, WHMIS.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="card" id="projects">
-    <h2>Projects</h2>
-
-    <div class="project-card">
+<section class="s" id="projects">
+  <div class="s-head"><div class="label">Projects</div><h2 class="display">Selected work.</h2></div>
+  <div class="rows">
+    <article class="row">
+      <div class="meta">2026</div>
       <h3>ApexFit</h3>
-      <p>
-        A full-stack fitness tracking app with a FastAPI backend and PostgreSQL database.
-        Indexed joins and optimized queries cut leaderboard latency by 40%. The Chart.js
-        dashboard shows personal records and progress trends, and HMAC-SHA256 tokens
-        handle authentication.
-      </p>
-      <div class="tech-stack">
-        <span>Python</span>
-        <span>FastAPI</span>
-        <span>PostgreSQL</span>
-        <span>JavaScript</span>
-        <span>Chart.js</span>
-      </div>
-      <!-- TODO: replace with your live demo URL -->
-      <a href="https://github.com/Jai-12-cpu" target="_blank" rel="noopener">View on GitHub →</a>
-    </div>
-
-    <div class="project-card">
+      <p>Full-stack fitness tracker on a FastAPI REST backend and PostgreSQL. Indexed joins and tuned aggregation queries cut leaderboard latency by 40%. A Chart.js dashboard charts personal records and trends, with HMAC-SHA256 token auth, deployed on Railway and Vercel.</p>
+      <div class="tags"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>JavaScript</span><span>Chart.js</span></div>
+      <!-- TODO: replace with the live demo URL -->
+      <a class="go" href="https://github.com/jai-12-cpu" target="_blank" rel="noopener">View project ↗</a>
+    </article>
+    <article class="row">
+      <div class="meta">2026</div>
       <h3>WonderQuest</h3>
-      <p>
-        An object-oriented text adventure engine in C++ with custom memory management and
-        dynamic inventory tracking. A custom file parser loads the world and scoring data
-        across 8 interactive locations.
-      </p>
-      <div class="tech-stack">
-        <span>C++</span>
-        <span>OOP</span>
-        <span>File I/O</span>
-      </div>
-      <!-- TODO: replace with your live demo URL -->
-      <a href="https://github.com/Jai-12-cpu" target="_blank" rel="noopener">View on GitHub →</a>
-    </div>
-
-    <div class="project-card">
+      <p>Object-oriented text adventure engine in C++ with custom memory management and dynamic inventory tracking. A custom file parser loads the world and scoring data across 8 locations.</p>
+      <div class="tags"><span>C++</span><span>OOP</span><span>File I/O</span></div>
+      <!-- TODO: replace with the live demo URL -->
+      <a class="go" href="https://github.com/jai-12-cpu" target="_blank" rel="noopener">View project ↗</a>
+    </article>
+    <article class="row">
+      <div class="meta">2025</div>
       <h3>VitalLink</h3>
-      <p>
-        A wearable wristband designed to reduce hospital delirium, built on an ATmega328P
-        with a pulse sensor and accelerometer. Real-time motion filtering in C/C++ cut
-        false-positive nurse alerts, and a monitoring GUI gives staff a live view.
-        Built in a team of 4.
-      </p>
-      <div class="tech-stack">
-        <span>C/C++</span>
-        <span>ATmega328P</span>
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
-      </div>
-      <!-- TODO: replace with your live demo URL -->
-      <a href="https://github.com/Jai-12-cpu" target="_blank" rel="noopener">View on GitHub →</a>
-    </div>
-
-    <div class="project-card">
+      <p>Wearable wristband to reduce hospital delirium, built on an ATmega328P with a pulse sensor and accelerometer. Real-time motion filtering in C/C++ cut false-positive nurse alerts, and a monitoring GUI gives staff a live view. Team of 4.</p>
+      <div class="tags"><span>C/C++</span><span>ATmega328P</span><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+      <!-- TODO: replace with the live demo URL -->
+      <a class="go" href="https://github.com/jai-12-cpu" target="_blank" rel="noopener">View project ↗</a>
+    </article>
+    <article class="row">
+      <div class="meta">2024</div>
       <h3>CyberVenture</h3>
-      <p>
-        A Python desktop app with 4 interactive logic mini-games, runtime input validation,
-        and MySQL-backed player profiles and leaderboards.
-      </p>
-      <div class="tech-stack">
-        <span>Python</span>
-        <span>MySQL</span>
-      </div>
-      <!-- TODO: replace with your live demo URL -->
-      <a href="https://github.com/Jai-12-cpu" target="_blank" rel="noopener">View on GitHub →</a>
+      <p>Python desktop app with 4 interactive logic mini-games, runtime input validation, and MySQL-backed player profiles and leaderboards.</p>
+      <div class="tags"><span>Python</span><span>MySQL</span></div>
+      <!-- TODO: replace with the live demo URL -->
+      <a class="go" href="https://github.com/jai-12-cpu" target="_blank" rel="noopener">View project ↗</a>
+    </article>
+  </div>
+</section>
+
+<section class="s" id="experience">
+  <div class="s-head"><div class="label">Experience</div><h2 class="display">Where I've worked.</h2></div>
+  <div class="rows">
+    <article class="row">
+      <div class="meta">Jun 2026 – Aug 2026 · Remote, Toronto</div>
+      <h3>Junior Software Engineer, Tesserae Studios</h3>
+      <p>Built full-stack components for LLM-based AI agents: prompt engineering, tool calling, and multi-step workflows for automated 3D room rendering and estimation. Fixed production bugs across two live client platforms (Modiva Studios and Clawd Video), joined weekly code reviews with executive leadership, and contacted 100+ target contractors for user outreach.</p>
+    </article>
+    <article class="row">
+      <div class="meta">Expected 2030 · Waterloo, ON</div>
+      <h3>BASc Computer Engineering (Co-op), University of Waterloo</h3>
+      <p>Coursework: data structures &amp; algorithms, object-oriented programming, digital logic, microprocessors, linear circuits. Certifications: MATLAB Onramp (MathWorks), Git Essential Training, WHMIS.</p>
+    </article>
+  </div>
+</section>
+
+<section class="s" id="awards">
+  <div class="s-head"><div class="label">Awards</div><h2 class="display">Hackathons &amp; contests.</h2></div>
+  <div class="rows">
+    <article class="row">
+      <div class="meta">24-hour hackathon · Team of 3</div>
+      <h3>EngHack Waterloo</h3>
+      <p>Designed and prototyped a tension-stabilized transport mechanism that reduces vibration for medical supplies.</p>
+    </article>
+    <article class="row">
+      <div class="meta">Quality of Life Hackathon</div>
+      <h3>Spark, assistive robot</h3>
+      <p>Built an assistive robotic device with sensor-driven actuation and a custom HMI for automated health-maintenance tasks.</p>
+    </article>
+    <article class="row">
+      <div class="meta">Competitive programming</div>
+      <h3>Helios</h3>
+      <p>Advanced through 6 rounds of algorithmic problem solving under strict time limits.</p>
+    </article>
+  </div>
+</section>
+
+<section class="s" id="contact">
+  <div class="s-head"><div class="label">Contact</div><h2 class="display">Let's talk.</h2></div>
+  <div class="contact">
+    <a class="big" href="mailto:jssivara@uwaterloo.ca">jssivara@uwaterloo.ca</a>
+    <div class="btns label">
+      <a class="btn" href="https://linkedin.com/in/jai-srinivasan-sivaraj" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/jai-12-cpu" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="resume.pdf">Resume</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="card">
-    <h2>Hackathons &amp; Achievements</h2>
+<footer><span>© 2026 Jai Srinivasan Sivaraj</span><span>Waterloo, ON</span></footer>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>EngHack Waterloo</h3>
-        <span>24-hour hackathon · Team of 3</span>
-        <p>
-          Designed and prototyped a tension-stabilized transport mechanism that reduces
-          vibration for medical supplies.
-        </p>
-      </div>
-
-      <div class="timeline-item">
-        <h3>Quality of Life Hackathon</h3>
-        <span>Spark, assistive robotic device</span>
-        <p>
-          Built an assistive robot with sensor-driven actuation and a custom HMI for
-          automated health-maintenance tasks.
-        </p>
-      </div>
-
-      <div class="timeline-item">
-        <h3>Helios Competitive Programming</h3>
-        <span>Advanced through 6 rounds</span>
-        <p>
-          Solved algorithmic problems under strict time limits.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="card">
-    <h2>Contact</h2>
-    <p>Email: jssivara@uwaterloo.ca</p>
-    <p>LinkedIn: linkedin.com/in/jai-srinivasan-sivaraj</p>
-  </section>
-
-  <section class="card contact">
-    <h2>Let’s Connect</h2>
-    <div class="contact-links">
-      <a href="mailto:jssivara@uwaterloo.ca">Email</a>
-      <a href="https://linkedin.com/in/jai-srinivasan-sivaraj" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/Jai-12-cpu" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Jai Srinivasan Sivaraj</p>
-  </footer>
-
-  <script src="script.js"></script>
+<script>
+(function(){
+  var fine=window.matchMedia("(pointer:fine)").matches;
+  if(!fine)return;
+  var cur=document.querySelector(".cur"),ring=document.querySelector(".ring");
+  var x=0,y=0,rx=0,ry=0;
+  document.body.classList.add("js");
+  document.addEventListener("mousemove",function(e){x=e.clientX;y=e.clientY;cur.style.transform="translate("+x+"px,"+y+"px)"});
+  (function loop(){rx+=(x-rx)*.18;ry+=(y-ry)*.18;ring.style.transform="translate("+rx+"px,"+ry+"px)";requestAnimationFrame(loop)})();
+  document.querySelectorAll("a,button").forEach(function(el){
+    el.addEventListener("mouseenter",function(){ring.classList.add("hov")});
+    el.addEventListener("mouseleave",function(){ring.classList.remove("hov")});
+  });
+})();
+</script>
 </body>
 </html>
