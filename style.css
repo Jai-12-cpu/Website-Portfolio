@@ -179,3 +179,60 @@ footer {
   text-decoration: none;
   font-weight: 500;
 }
+
+/* ---------- ADDITIONS ---------- */
+
+/* Project titles (your old rule targeted .project, which no longer exists) */
+.project-card h3 {
+  color: #a855f7;
+  margin-bottom: 8px;
+}
+
+/* Space the project link away from the tech chips */
+.project-card a {
+  display: inline-block;
+  margin-top: 16px;
+}
+
+.project-card a:hover,
+.contact-links a:hover {
+  text-decoration: underline;
+}
+
+/* Spacing between paragraphs and the date line in timeline entries */
+.timeline-item span {
+  display: block;
+  margin: 2px 0 6px;
+}
+
+/* Keyboard focus */
+a:focus-visible {
+  outline: 2px solid #00ffff;
+  outline-offset: 3px;
+}
+
+/* Smooth scroll for the "View Projects" button */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .neon-text {
+    font-size: 2rem;
+  }
+
+  header {
+    padding: 50px 16px;
+  }
+
+  .card {
+    margin: 20px 16px;
+    padding: 20px;
+  }
+
+  .btn {
+    display: inline-block;
+    margin: 6px;
+  }
+}
